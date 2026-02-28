@@ -1,0 +1,129 @@
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+ <link rel="stylesheet" href="style.css">
+
+
+<script src="https://www.paypal.com/sdk/js?client-id=ARf-RdlCTjnFCBXP-6s-dOK19oMSRmzdFHZ-PNUfHwecBnMksEhVVnaKPuIl-W3E8QyGOAdJnTwtG2-G&currency=USD"></script>
+</head>
+
+<body>
+<div class="background">
+<div class="line-overlay"></div>
+</div>
+<div class="loginsignup">
+<div class="line-overlay2"></div>
+  
+<div class="form-toggle-container">
+
+  <div class="toggle-buttons">
+    <button id="loginBtn" class="active">Login</button>
+    <button id="signupBtn">Signup</button>
+  </div>
+  <div class="forms">
+
+    <form id="loginForm" class="form active">
+      <h2>Login</h2>
+      <input type="text" placeholder="Username" id="loginUsername"required />
+      <input type="password" placeholder="Password" id="loginPassword" required />
+      <button onclick="login()">Login</button>
+    </form>
+    <form id="signupForm" class="form">
+      <h2>Signup</h2>
+      <input type="text" placeholder="Username" id="signupUsername" required />
+      <input type="password" placeholder="Password" id="signupPassword" required />
+      <button onclick="signup()">Signup</button>
+    </form>
+  </div>
+</div>
+<div class="message" id="message"></div>
+</div><!--container-->
+
+<script>
+function getUsers(){
+const users = localStorage.getItem('users');
+return users ? JSON.parse(users) : {};
+}
+
+function saveUsers(users){
+localStorage.setItem('users', JSON.stringify(users));
+}
+</script>
+
+<script>
+let currentUser = null;
+function signup(){
+const username = document.getElementById('signupUsername').value;
+const password = document.getElementById('signupPassword').value;
+const message = document.getElementById('message');
+  if (!username || !password) {
+    message.textContent = 'Please fill in all fields.';
+    return;
+}
+
+const users = getUsers();
+if (users[username]) {
+message.textContent = 'Username already exists.';
+return;
+}
+
+
+users[username] = password; 
+saveUsers(users);
+message.textContent = 'Signup successful! You can now log in.';
+}
+
+function login() {
+
+event.preventDefault();
+const username = document.getElementById("loginUsername").value;
+currentUser = username;
+const password = document.getElementById('loginPassword').value;
+const message = document.getElementById('message');
+const users = getUsers();
+if (users[username] && users[username] === password) {
+
+
+localStorage.setItem('loggedInUser', users[username]);
+
+
+    // Redirect to your page
+    window.location.href = 'burger-shop.html';  // 👈 CHANGE TO YOUR PAGE
+  } else {
+    message.textContent = 'Invalid username or password.';
+  }
+}
+
+</script>
+
+    
+
+<script>
+const loginBtn = document.getElementById('loginBtn');
+const signupBtn = document.getElementById('signupBtn');
+const loginForm = document.getElementById('loginForm');
+const signupForm = document.getElementById('signupForm');
+
+loginBtn.addEventListener('click', () => {
+  loginBtn.classList.add('active');
+  signupBtn.classList.remove('active');
+  loginForm.classList.add('active');
+  signupForm.classList.remove('active');
+});
+
+signupBtn.addEventListener('click', () => {
+  signupBtn.classList.add('active');
+  loginBtn.classList.remove('active');
+  signupForm.classList.add('active');
+  loginForm.classList.remove('active');
+});
+</script>
+
+
+
+</body>
+</html>
+

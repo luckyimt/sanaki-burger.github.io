@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <link rel="stylesheet" href="style.css">
+
+<script src="/analytics.js"></script>
+
+<script src="https://www.paypal.com/sdk/js?client-id=ARf-RdlCTjnFCBXP-6s-dOK19oMSRmzdFHZ-PNUfHwecBnMksEhVVnaKPuIl-W3E8QyGOAdJnTwtG2-G&currency=USD"></script>
+
+
+</head>
+
+
+<body onload="loadCart()">
+
+<div class="tabmenu">
+<h1 id="userDisplay"></h1>
+
+
+<button onClick="logout()" class="leaf-button">
+  <svg viewBox="0 0 1600 200" width="100%" height="auto" preserveAspectRatio="none">
+    <!-- Leafy shape path -->
+    <path d="M0,100 
+             Q100,0 300,100 
+             Q500,200 700,100 
+             Q900,0 1100,100 
+             Q1300,200 1500,100 
+             Q1600,80 1600,200 
+             L0,200 Z" 
+          fill="url(#leafGradient)" class="leaf-shape"/>
+    
+    <!-- Gradient fill -->
+    <defs>
+      <linearGradient id="leafGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#76c893"/>
+        <stop offset="100%" stop-color="#52b788"/>
+      </linearGradient>
+    </defs>
+    
+    <!-- Optional button text -->
+    <text x="50%" y="55%" dominant-baseline="middle" text-anchor="middle" fill="white" font-size="60" font-family="Arial, sans-serif">
+      log out
+    </text>
+  </svg>
+</button>
+  <script>
+
+    const username = localStorage.getItem('loggedInUser');
+
+document.getElementById("userDisplay").textContent = username || "Guest";
+  </script>
+
+<div class="perimeter">
+
+<div class="left-column">
+
+<div class="row">
+
+<button onclick="showTab(2)" class="bacon-button">
+  <svg viewBox="0 0 1600 400" width="100%" height="auto" preserveAspectRatio="none">
+    <!-- Bacon strip shape -->
+    <path d="
+      M0,300 
+      C100,250 150,350 300,300 
+      C450,250 500,350 700,300 
+      C900,250 950,350 1100,300 
+      C1250,250 1300,350 1500,300 
+      C1550,290 1600,310 1600,400 
+      L0,400 Z
+    " fill="url(#baconGradient)" class="bacon-shape"/>
+
+    <!-- Gradient for bacon -->
+    <defs>
+      <linearGradient id="baconGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#8B2500"/>
+        <stop offset="20%" stop-color="#FF6347"/>
+        <stop offset="40%" stop-color="#8B2500"/>
+        <stop offset="60%" stop-color="#FF6347"/>
+        <stop offset="80%" stop-color="#8B2500"/>
+        <stop offset="100%" stop-color="#FF6347"/>
+      </linearGradient>
+    </defs>
+<h1>cLUBSANDWISH</h1>
+  </svg>
+</button>
+</div>
+
+
+<div class="row">
+<button onclick="showTab(0)" class="cheese-button">
+  <svg viewBox="0 0 1600 600" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+
+    <!-- Melty cheese shape -->
+    <path id="cheeseDrip" d="
+      M0,150 
+      Q200,130 400,150 
+      Q600,170 800,150 
+      Q1000,130 1200,150 
+      Q1400,170 1600,150 
+      L1600,400 
+      Q1550,380 1520,450 
+      Q1480,520 1420,480 
+      Q1350,420 1300,500 
+      Q1250,560 1200,500 
+      Q1150,440 1100,520 
+      Q1050,580 1000,500 
+      Q950,420 900,500 
+      Q850,560 800,500 
+      Q750,440 700,520 
+      Q650,580 600,500 
+      Q550,420 500,500 
+      Q450,560 400,500 
+      Q350,440 300,500 
+      Q250,560 200,500 
+      Q150,440 100,500 
+      Q50,560 0,500 Z"
+      fill="#FFD700" stroke="#e0ac00" stroke-width="4">
+      <animate attributeName="d"
+        dur="1s"
+        repeatCount="indefinite"
+        values="
+          M0,150 Q200,130 400,150 Q600,170 800,150 Q1000,130 1200,150 Q1400,170 1600,150 L1600,400 Q1550,380 1520,450 Q1480,520 1420,480 Q1350,420 1300,500 Q1250,560 1200,500 Q1150,440 1100,520 Q1050,580 1000,500 Q950,420 900,500 Q850,560 800,500 Q750,440 700,520 Q650,580 600,500 Q550,420 500,500 Q450,560 400,500 Q350,440 300,500 Q250,560 200,500 Q150,440 100,500 Q50,560 0,500 Z;
+          
+          M0,150 Q200,135 400,150 Q600,180 800,150 Q1000,120 1200,150 Q1400,180 1600,150 L1600,400 Q1550,400 1520,460 Q1480,540 1420,470 Q1350,400 1300,510 Q1250,580 1200,510 Q1150,430 1100,530 Q1050,600 1000,490 Q950,410 900,510 Q850,580 800,510 Q750,420 700,530 Q650,600 600,510 Q550,430 500,510 Q450,580 400,510 Q350,430 300,510 Q250,580 200,510 Q150,430 100,510 Q50,580 0,510 Z;
+
+          M0,150 Q200,130 400,150 Q600,170 800,150 Q1000,130 1200,150 Q1400,170 1600,150 L1600,400 Q1550,380 1520,450 Q1480,520 1420,480 Q1350,420 1300,500 Q1250,560 1200,500 Q1150,440 1100,520 Q1050,580 1000,500 Q950,420 900,500 Q850,560 800,500 Q750,440 700,520 Q650,580 600,500 Q550,420 500,500 Q450,560 400,500 Q350,440 300,500 Q250,560 200,500 Q150,440 100,500 Q50,560 0,500 Z"
+      />
+    </path>
+
+    <!-- Optional cartoon cheese holes -->
+    <circle cx="300" cy="240" r="30" fill="#f4c430" />
+    <circle cx="900" cy="220" r="40" fill="#f4c430" />
+    <circle cx="1300" cy="300" r="25" fill="#f4c430" />
+
+      <h1>bURGER</h1>
+    </text>
+  </svg>
+</button>
+    <!-- Button Text -->
+</div>
+
+<div class="row">
+<button onclick="showTab(1)" class="bacon-button">
+  <svg viewBox="0 0 1600 400" width="100%" height="auto" preserveAspectRatio="none">
+    <!-- Bacon strip shape -->
+    <path d="
+      M0,300 
+      C100,250 150,350 300,300 
+      C450,250 500,350 700,300 
+      C900,250 950,350 1100,300 
+      C1250,250 1300,350 1500,300 
+      C1550,290 1600,310 1600,400 
+      L0,400 Z
+    " fill="url(#baconGradient)" class="bacon-shape"/>
+
+    <!-- Gradient for bacon -->
+    <defs>
+      <linearGradient id="baconGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#8B2500"/>
+        <stop offset="20%" stop-color="#FF6347"/>
+        <stop offset="40%" stop-color="#8B2500"/>
+        <stop offset="60%" stop-color="#FF6347"/>
+        <stop offset="80%" stop-color="#8B2500"/>
+        <stop offset="100%" stop-color="#FF6347"/>
+      </linearGradient>
+    </defs>
+<h1>fRENCHFRY</h1>
+  </svg>
+</button>
+
+</div>
+
+<div class="row">
+<div id="userDisplay"></div>
+<div id="cart">
+</div>
+<div id="total" class="total">Total: $0.00</div>
+ <div id="paypal-button-container"></div>
+
+
+</div><!--close left column-->
+</div>
+
+<div class="right-column">
+
+<div class="tab-content active">
+
+<div class="product" data-id="1" data-img="beef.jpg" data-name="cheese-beef" data-price="99">
+<div class="label">Beef</div>
+<button onclick="addToCart(1)" class="fire-button">pick
+</button>
+<img src="beef.jpg" alt="beef" class="img-product">
+</div>
+
+<div class="product" data-id="2" data-img="pork.jpg" data-name="cheese-pork" data-price="79">
+<div class="label">Pork</div>
+<button class="fire-button" onclick="addToCart(2)">pick</button>
+<img src="pork.jpg" alt="pork" class="img-product">
+</div>
+
+<div class="product" data-id="3" data-img="chicken.jpg" data-name="cheese-chicken" data-price="69">
+<div class="label">Chicken</div>
+<button class="fire-button" onclick="addToCart(3)">pick</button>
+<img src="chicken.jpg" alt="chicken" class="img-product">
+</div>
+
+</div>
+
+<div class="tab-content">
+
+<div class="product" data-id="4" data-img="chips.jpg" data-name="frenchfries" data-price="69" >
+
+<div class="label">Fries</div>
+<button class="fire-button" onclick="addToCart(4)">pick</button>
+<img src="chips.jpg" alt="frenchfries" class="img-product">
+
+
+</div>
+</div>
+
+<div class="tab-content">
+
+<div class="product" data-id="5" data-img="sandwish.jpg" data-name="sandwish" data-price="99">
+
+<div class="label">Sandwish</div>
+<button class="fire-button" onclick="addToCart(5)">pick</button>
+<img src="sandwish.jpg" alt="sandwish" class="img-product">
+
+
+</div>
+</div>
+
+</div><!--
+close right column-->
+
+</div>
+</div>
+
+
+<script>
+
+
+function addToCart(productId) {
+      
+const product = document.querySelector(`.product[data-id='${productId}']`);
+      const name = product.getAttribute('data-name');
+      const price = parseFloat(product.getAttribute('data-price'));
+const image = product.getAttribute('data-img');
+      const existingItem = cart.find(item => item.id === productId);
+      if (existingItem) {
+        existingItem.quantity += 1;
+      } else {
+        cart.push({ img:image, id: productId, name, price, quantity: 1 , username});
+      }
+      saveCart();
+      renderCart();
+}
+
+
+function removeFromCart(productId) {
+      cart = cart.filter(item => item.id !== productId);
+      saveCart();
+      renderCart();
+    }
+    
+function renderCart() 
+{
+   const cartContainer = document.getElementById('cart');
+   cartContainer.innerHTML = cart.map(item => `
+     <div class="cart-item">
+       <div><img src="${item.img}" class="cart-img"></div><div class="sum">x${item.quantity} = $${(item.price * item.quantity).toFixed(2)} 
+ <button class="fire-button" onclick="removeFromCart(${item.id})">cancel</button>
+</div>
+                </div>
+     `).join('');
+     const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+
+
+currentTotal = total;
+document.getElementById('total').textContent = total.toFixed(2);
+    }
+
+function saveCart() {
+   localStorage.setItem('cart', JSON.stringify(cart));
+    }
+
+function loadCart() {
+
+      const stored = localStorage.getItem('cart');
+      if (stored) {
+        cart = JSON.parse(stored);
+        renderCart();
+      }
+    }
+
+
+</script>
+
+  <script>
+  function logout() {
+
+sessionStorage.clear();
+
+
+
+    // Redirect to login page or home
+    window.location.href = 'index.html';
+  }
+</script>
+
+
+
+
+<script>
+const express = require('express');
+const app = express();
+const port = 3000;
+
+
+
+app.use(express.json());
+
+app.post("/webhook/paypal", async (req, res) => {
+    const body = req.body;
+
+    if (body.event_type === "PAYMENT.SALE.COMPLETED") {
+        const orderId = body.resource.parent_payment;
+        const payerEmail = body.resource.payer.payer_info.email;
+        const amount = body.resource.amount.total;
+
+        // Save to database
+        await saveOrderToDatabase(orderId, payerEmail, amount);
+
+        res.sendStatus(200);
+    } else {
+        res.sendStatus(400);
+    }
+}
+);
+</script>
+
+<script>
+let currentTotal = 0;
+let cart =  [];
+</script>
+
+<script>
+paypal.Buttons({
+ style: {
+        layout: 'vertical',
+        color:  'blue',
+        shape:  'rect',
+        label:  'pay'
+      },
+  createOrder: function(data, actions) {
+    return actions.order.create({
+      purchase_units: [{
+        amount: {
+          value: currentTotal.toFixed(2)
+        }
+      }]
+    });
+  },
+     onApprove: function(data, actions) {
+        return actions.order.capture().then(function(details) {
+            // ✅ Notify store owner here (via your backend)
+            fetch('/notify-store-owner', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    payerName: details.payer.name.given_name,
+                    payerEmail: details.payer.email_address,
+                    amount: details.purchase_units[0].amount.value
+                })
+            });
+            alert('Transaction completed by ' + details.payer.name.given_name);
+        });
+    }
+}).render('#paypal-button-container');
+
+</script>
+
+<script>
+function showTab(index) {
+
+  const sound = document.getElementById("splatSound");
+    sound.currentTime = 0;
+    sound.play();
+
+    const tabs = document.querySelectorAll('.fire-button');
+    const contents = document.querySelectorAll('.tab-content');
+    tabs.forEach((tab, i) => {
+      tab.classList.toggle('active', i === index);
+      contents[i].classList.toggle('active', i === index);
+
+
+
+    });
+  }
+</script>
+
+
+<script>
+function explodeTomato(button) {
+  if (button.classList.contains('exploded')) return;
+
+  button.classList.add('exploded');
+
+  // Set random directions for slices
+  const slices = button.querySelectorAll('.slices path');
+  slices.forEach((slice) => {
+    const angle = Math.random() * 2 * Math.PI;
+    const distance = 60 + Math.random() * 20;
+    const dx = Math.cos(angle) * distance;
+    const dy = Math.sin(angle) * distance;
+    slice.style.setProperty('--x', dx + 'px');
+    slice.style.setProperty('--y', dy + 'px');
+  });
+}
+</script>
+
+
+
+
+<audio id="splatSound" src="https://cdn.pixabay.com/audio/2023/03/20/audio_2e91cbd52f.mp3"></audio>
+
+<script>
+  function playSplatSound() {
+    const sound = document.getElementById("splatSound");
+    sound.currentTime = 0;
+    sound.play();
+  }
+</script>
+
+
+
+</body>
+</html>
+
