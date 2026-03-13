@@ -48,53 +48,6 @@
   const username = localStorage.getItem('loggedInUser');
   const key = "cart_" + username;
   
-function checkout(){
-
-const cartKey = "cart_" + username;
-
-let cart = JSON.parse(localStorage.getItem(cartKey)) || [];
-
-if(cart.length === 0) return;
-
-let total = cart.reduce((sum,item)=>sum + item.price*item.quantity,0);
-
-const order = {
-orderId:"ORD"+Date.now(),
-email:username,
-items:cart,
-total:total,
-date:new Date().toISOString().slice(0,10)
-};
-
-
-/* Save to global order list */
-
-let allOrders = JSON.parse(localStorage.getItem("orders_all")) || [];
-
-allOrders.push(order);
-
-localStorage.setItem("orders_all", JSON.stringify(allOrders));
-
-
-/* Save to user order history */
-
-let userOrders = JSON.parse(localStorage.getItem("orders_"+username)) || [];
-
-userOrders.push(order);
-
-localStorage.setItem("orders_"+username, JSON.stringify(userOrders));
-
-
-/* Clear cart */
-
-localStorage.removeItem(cartKey);
-
-alert("checkout!");
-
-window.location.href = `pay-order.html?ticketId=${encodeURIComponent(orderId)}&user=${encodeURIComponent(email)}&item=${encodeURIComponent(items}&total=${encodeURIComponent(total)}&total=${encodeURIComponent(total)`;
-}
-
-document.getElementById("userDisplay").textContent = username || "Guest";
   </script>
 
 <div class="perimeter">
@@ -287,6 +240,36 @@ close right column-->
 
 
 <script>
+
+function checkout(){
+const cartKey = "cart_" + username;
+let cart = JSON.parse(localStorage.getItem(cartKey)) || [];
+if(cart.length === 0) return;
+
+let total = cart.reduce((sum,item)=>sum + item.price*item.quantity,0);
+const order = {
+orderId:"ORD"+Date.now(),
+email:username,
+items:cart,
+total:total,
+date:new Date().toISOString().slice(0,10)
+};
+
+/* Save to global order list */
+let allOrders = JSON.parse(localStorage.getItem("orders_all")) || [];
+allOrders.push(order);
+localStorage.setItem("orders_all", JSON.stringify(allOrders));
+/* Save to user order history */
+let userOrders = JSON.parse(localStorage.getItem("orders_"+username)) || [];
+userOrders.push(order);
+localStorage.setItem("orders_"+username, JSON.stringify(userOrders));
+/* Clear cart */
+localStorage.removeItem(cartKey);
+alert("checkout!");
+window.location.href = `pay-order.html?ticketId=${encodeURIComponent(orderId)}&user=${encodeURIComponent(email)}&item=${encodeURIComponent(items)}&total=${encodeURIComponent(total)}`;
+}
+
+
 function addToCart(productId) {
       const product = document.querySelector(`.product[data-id='${productId}']`);
       const name = product.getAttribute('data-name');
