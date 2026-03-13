@@ -112,24 +112,24 @@ background-image: url("burger.jpg");
 <body>
 
   <div class="ticket-container">
-    <div class="ticket-title">order detail</div>
+    <div class="ticket-title">order details</div>
 
 <div class="ticket-info">
 <div class="info-item">
 <div class="label">sanaki-burger</div>
 
 <div class="info-item">
-<div class="label">time</div>
-<div id = "date" class="value">'${now}'</div>
+<div class="label">date of order</div>
+<div id = "date" class="value">'${date}'</div>
 </div>
 
 <div class="info-item"> 
-<div class="label">sub total</div>
+<div class="label">total</div>
 <div id="total">'${total}'</div></div>
 
 <div class="info-item"> 
-<div class="label">this the order number</div>
-<div id="ticket-id">'${ticketId}'</div></div>
+<div class="label">order number</div>
+<div id="ticket-id">'${orderId}'</div></div>
 
 <div class="qr-code">
 <img src="https://api.qrserver.com/v1/create-qr-code/?data=TK-982541&size=150x150" alt="QR Code">
@@ -149,11 +149,12 @@ return urlParams.get(name);
 <script>
 const now = new Date().toISOString().split('T')[0];
 
-const ticketId = getQueryParam('ticketId');
-const name = getQueryParam('user');
+const ticketId = getQueryParam('orderId');
+const name = getQueryParam('email');
 const total = getQueryParam('total');
+const 
 
-document.getElementById('ticket-id').textContent = ticketId + ":" + name;
+document.getElementById('ticket-id').textContent = orderId + " : " + name;
 document.getElementById('total').textContent = total;
 document.getElementById('date').textContent = now;
 </script>
