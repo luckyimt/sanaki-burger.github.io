@@ -327,17 +327,16 @@ currentTotal = total;
 document.getElementById('total').textContent = total.toFixed(2);
     }
 
-
     function loadCart(){
-     const key = "cart_" + username;
-    const iskey = JSON.parse(localStorage.getItem(key));
-     if (iskey) {
-      cart =  JSON.parse(iskey);
-      renderCart();
+    const key = "cart_" + username;
+    const stored = localStorage.getItem(key);
+      if (stored) {
+        cart = JSON.parse(stored);
+        renderCart();
+      }
     }
-}
   function logout() {
-sessionStorage.clear();
+    sessionStorage.clear();
     // Redirect to login page or home
     window.location.href = 'index.html';
   }
