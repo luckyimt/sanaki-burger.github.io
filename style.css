@@ -181,8 +181,8 @@ font-family:monospace;
 border-radius: 7%;
 overflow: hidden;
 background-color:rgba(224,100,100,0.2);
-height:70dvh;
-width:70dvw;
+height:100%;
+width:100%;
 }
 
 .logout-button {
