@@ -180,7 +180,9 @@ font-family:monospace;
 .product {
 border-radius: 7%;
 overflow: hidden;
-background-color:rgba(0,100,0,0.2);
+background-color:rgba(224,100,100,0.2);
+height:70dvh;
+width:70dvw;
 }
 
 .logout-button {
