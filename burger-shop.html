@@ -49,10 +49,15 @@
   const key = "cart_" + username;
   
 function checkout(){
+
 const cartKey = "cart_" + username;
+
 let cart = JSON.parse(localStorage.getItem(cartKey)) || [];
+
 if(cart.length === 0) return;
+
 let total = cart.reduce((sum,item)=>sum + item.price*item.quantity,0);
+
 const order = {
 orderId:"ORD"+Date.now(),
 email:username,
@@ -61,11 +66,13 @@ total:total,
 date:new Date().toISOString().slice(0,10)
 };
 
+
 /* Save to global order list */
 
 let allOrders = JSON.parse(localStorage.getItem("orders_all")) || [];
 
 allOrders.push(order);
+
 localStorage.setItem("orders_all", JSON.stringify(allOrders));
 
 
@@ -74,13 +81,16 @@ localStorage.setItem("orders_all", JSON.stringify(allOrders));
 let userOrders = JSON.parse(localStorage.getItem("orders_"+username)) || [];
 
 userOrders.push(order);
+
 localStorage.setItem("orders_"+username, JSON.stringify(userOrders));
 
 
 /* Clear cart */
 
 localStorage.removeItem(cartKey);
+
 alert("Order placed!");
+window.location.href = 'pay-order.html';
 
 }
 
@@ -212,7 +222,7 @@ document.getElementById("userDisplay").textContent = username || "Guest";
 <div id="cart">
 </div>
 <div id="total" class="total">Total: $0.00</div>
- 
+<div><button onclick="checkout()">place order</button>
 
 <div id="paypal-button-container"></div>
 
