@@ -48,10 +48,10 @@
 function checkout(){
 const cartKey = "cart_" + username;
 
-let order = JSON.parse(localStorage.getItem(cartKey)) || [];
-if(order.length === 0) return;
+let cart = JSON.parse(localStorage.getItem(cartKey)) || [];
+if(cart.length === 0) return;
 
-let total = order.reduce((sum,item)=>sum + item.price*item.quantity,0);
+let total = cart.reduce((sum,item)=>sum + item.price*item.quantity,0);
 
 const order = {
 orderId:"ORD"+Date.now(),
