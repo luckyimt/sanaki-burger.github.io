@@ -44,8 +44,48 @@
   </svg>
 </button>
   <script>
+function checkout(){
+const cartKey = "cart_" + username;
 
-    const username = localStorage.getItem('loggedInUser');
+let order = JSON.parse(localStorage.getItem(cartKey)) || [];
+if(order.length === 0) return;
+
+let total = order.reduce((sum,item)=>sum + item.price*item.quantity,0);
+
+const order = {
+orderId:"ORD"+Date.now(),
+email:username,
+items:cart,
+total:total,
+date:new Date().toISOString().slice(0,10)
+};
+
+
+/* Save to global order list */
+
+let allOrders = JSON.parse(localStorage.getItem("orders_all")) || [];
+
+allOrders.push(order);
+
+localStorage.setItem("orders_all", JSON.stringify(allOrders));
+
+
+/* Save to user order history */
+
+let userOrders = JSON.parse(localStorage.getItem("orders_"+username)) || [];
+
+userOrders.push(order);
+
+localStorage.setItem("orders_"+username, JSON.stringify(userOrders));
+
+
+/* Clear cart */
+
+localStorage.removeItem(cartKey);
+
+alert("Order placed!");
+
+}
 
 document.getElementById("userDisplay").textContent = username || "Guest";
   </script>
@@ -175,7 +215,9 @@ document.getElementById("userDisplay").textContent = username || "Guest";
 <div id="cart">
 </div>
 <div id="total" class="total">Total: $0.00</div>
- <div id="paypal-button-container"></div>
+ 
+
+<div id="paypal-button-container"></div>
 
 
 </div><!--close left column-->
@@ -239,27 +281,30 @@ close right column-->
 
 <script>
 
-
+const username = localStorage.getItem('loggedInUser');
 function addToCart(productId) {
-      
 const product = document.querySelector(`.product[data-id='${productId}']`);
-      const name = product.getAttribute('data-name');
-      const price = parseFloat(product.getAttribute('data-price'));
+const name = product.getAttribute('data-name');
+const price = parseFloat(product.getAttribute('data-price'));
 const image = product.getAttribute('data-img');
+const key = "cart_" + username;
+
+let cart = JSON.parse(localStorage.getItem(key)) || [];
       const existingItem = cart.find(item => item.id === productId);
       if (existingItem) {
         existingItem.quantity += 1;
       } else {
-        cart.push({ img:image, id: productId, name, price, quantity: 1 , username});
+        cart.push({ img:image, id: productId, name, price, quantity: 1 });
       }
-      saveCart();
+      localStorage.setItem(key, JSON.stringify(cart));
       renderCart();
+      
 }
 
 
 function removeFromCart(productId) {
       cart = cart.filter(item => item.id !== productId);
-      saveCart();
+      localStorage.setItem(key, JSON.stringify(cart));
       renderCart();
     }
     
@@ -280,44 +325,29 @@ currentTotal = total;
 document.getElementById('total').textContent = total.toFixed(2);
     }
 
-function saveCart() {
-   localStorage.setItem('cart', JSON.stringify(cart));
+
+    
+    function loadCart(){
+     const key = "cart_" + username;
+    const iskey = JSON.parse(localStorage.getItem(key));
+     if (iskey) {
+      cart =  JSON.parse(iskey);
+      renderCart();
     }
-
-function loadCart() {
-
-      const stored = localStorage.getItem('cart');
-      if (stored) {
-        cart = JSON.parse(stored);
-        renderCart();
-      }
-    }
-
-
-</script>
-
-  <script>
+}
   function logout() {
 
+
 sessionStorage.clear();
-
-
-
     // Redirect to login page or home
     window.location.href = 'index.html';
   }
 </script>
 
-
-
-
 <script>
 const express = require('express');
 const app = express();
 const port = 3000;
-
-
-
 app.use(express.json());
 
 app.post("/webhook/paypal", async (req, res) => {
@@ -382,7 +412,6 @@ paypal.Buttons({
 
 <script>
 function showTab(index) {
-
   const sound = document.getElementById("splatSound");
     sound.currentTime = 0;
     sound.play();
@@ -392,9 +421,6 @@ function showTab(index) {
     tabs.forEach((tab, i) => {
       tab.classList.toggle('active', i === index);
       contents[i].classList.toggle('active', i === index);
-
-
-
     });
   }
 </script>
@@ -418,8 +444,6 @@ function explodeTomato(button) {
   });
 }
 </script>
-
-
 
 
 <audio id="splatSound" src="https://cdn.pixabay.com/audio/2023/03/20/audio_2e91cbd52f.mp3"></audio>
