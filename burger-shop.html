@@ -44,6 +44,7 @@
   </svg>
 </button>
   <script>
+  const username = localStorage.getItem('loggedInUser');
 function checkout(){
 const cartKey = "cart_" + username;
 
@@ -281,7 +282,7 @@ close right column-->
 
 <script>
 
-const username = localStorage.getItem('loggedInUser');
+
 function addToCart(productId) {
 const product = document.querySelector(`.product[data-id='${productId}']`);
 const name = product.getAttribute('data-name');
@@ -294,18 +295,19 @@ let cart = JSON.parse(localStorage.getItem(key)) || [];
       if (existingItem) {
         existingItem.quantity += 1;
       } else {
-        cart.push({ img:image, id: productId, name, price, quantity: 1 });
+        cart.push({ img:image, id: productId, name, price, quantity: 1 ,key});
       }
-      localStorage.setItem(key, JSON.stringify(cart));
+
       renderCart();
+      localStorage.setItem(key, JSON.stringify(cart));
       
 }
 
 
 function removeFromCart(productId) {
       cart = cart.filter(item => item.id !== productId);
-      localStorage.setItem(key, JSON.stringify(cart));
       renderCart();
+            localStorage.setItem(key, JSON.stringify(cart));
     }
     
 function renderCart() 
@@ -314,7 +316,7 @@ function renderCart()
    cartContainer.innerHTML = cart.map(item => `
      <div class="cart-item">
        <div><img src="${item.img}" class="cart-img"></div><div class="sum">x${item.quantity} = $${(item.price * item.quantity).toFixed(2)} 
- <button class="fire-button" onclick="removeFromCart(${item.id})">cancel</button>
+       <button class="fire-button" onclick="removeFromCart(${item.id})">cancel</button>
 </div>
                 </div>
      `).join('');
@@ -326,7 +328,6 @@ document.getElementById('total').textContent = total.toFixed(2);
     }
 
 
-    
     function loadCart(){
      const key = "cart_" + username;
     const iskey = JSON.parse(localStorage.getItem(key));
@@ -336,8 +337,6 @@ document.getElementById('total').textContent = total.toFixed(2);
     }
 }
   function logout() {
-
-
 sessionStorage.clear();
     // Redirect to login page or home
     window.location.href = 'index.html';
