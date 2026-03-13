@@ -282,20 +282,18 @@ close right column-->
 
 <script>
 
-
+const key = "cart_" + username;
 function addToCart(productId) {
 const product = document.querySelector(`.product[data-id='${productId}']`);
 const name = product.getAttribute('data-name');
 const price = parseFloat(product.getAttribute('data-price'));
 const image = product.getAttribute('data-img');
-const key = "cart_" + username;
-
 let cart = JSON.parse(localStorage.getItem(key)) || [];
       const existingItem = cart.find(item => item.id === productId);
       if (existingItem) {
         existingItem.quantity += 1;
       } else {
-        cart.push({ img:image, id: productId, name, price, quantity: 1 ,key:key});
+        cart.push({ img:image, id: productId, name, price, quantity: 1 ,key});
       }
       saveCart();
       renderCart();
@@ -328,12 +326,12 @@ document.getElementById('total').textContent = total.toFixed(2);
     }
     
     function saveCart() {
-    const key = "cart_" + username;
+
     localStorage.setItem(key, JSON.stringify(cart));
     }
 
     function loadCart(){
-    const key = "cart_" + username;
+
     const stored = localStorage.getItem(key);
       if (stored) {
         cart = JSON.parse(stored);
