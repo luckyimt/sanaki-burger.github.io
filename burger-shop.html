@@ -89,9 +89,9 @@ localStorage.setItem("orders_"+username, JSON.stringify(userOrders));
 
 localStorage.removeItem(cartKey);
 
-alert("Order placed!");
-window.location.href = 'pay-order.html';
+alert("checkout!");
 
+window.location.href = `pay-order.html?ticketId=${encodeURIComponent(orderId)}&user=${encodeURIComponent(email)}&item=${encodeURIComponent(items}&total=${encodeURIComponent(total)}&total=${encodeURIComponent(total)`;
 }
 
 document.getElementById("userDisplay").textContent = username || "Guest";
