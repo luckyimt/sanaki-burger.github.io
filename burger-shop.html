@@ -295,7 +295,7 @@ let cart = JSON.parse(localStorage.getItem(key)) || [];
       if (existingItem) {
         existingItem.quantity += 1;
       } else {
-        cart.push({ img:image, id: productId, name, price, quantity: 1 ,key});
+        cart.push({ img:image, id: productId, name, price, quantity: 1 ,key:key});
       }
 
       renderCart();
