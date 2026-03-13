@@ -152,7 +152,7 @@ const now = new Date().toISOString().split('T')[0];
 const ticketId = getQueryParam('orderId');
 const name = getQueryParam('email');
 const total = getQueryParam('total');
-const 
+const item = getQueryParam('items');
 
 document.getElementById('ticket-id').textContent = orderId + " : " + name;
 document.getElementById('total').textContent = total;
