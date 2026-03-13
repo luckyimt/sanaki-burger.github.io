@@ -110,7 +110,7 @@ height:100dvh;
 
 .st-row {
     height: 60dvh;
-width:100;
+width:100dvw;
     justify-content: center;
     align-items: center;
 display:flex;
@@ -118,7 +118,7 @@ display:flex;
 
 p{
 font-size:28px;
-width:10dwh;
+width:10dvw;
 font-family:monospace;
 color:rgba(255,255,255,1);
 }
