@@ -297,17 +297,17 @@ let cart = JSON.parse(localStorage.getItem(key)) || [];
       } else {
         cart.push({ img:image, id: productId, name, price, quantity: 1 ,key:key});
       }
-
+      saveCart();
       renderCart();
-      localStorage.setItem(key, JSON.stringify(cart));
       
 }
 
 
 function removeFromCart(productId) {
       cart = cart.filter(item => item.id !== productId);
+      saveCart();
       renderCart();
-            localStorage.setItem(key, JSON.stringify(cart));
+
     }
     
 function renderCart() 
@@ -326,6 +326,11 @@ function renderCart()
 currentTotal = total;
 document.getElementById('total').textContent = total.toFixed(2);
     }
+    
+    function saveCart() {
+    const key = "cart_" + username;
+    localStorage.setItem(key, JSON.stringify(cart));
+    }
 
     function loadCart(){
     const key = "cart_" + username;
@@ -336,7 +341,7 @@ document.getElementById('total').textContent = total.toFixed(2);
       }
     }
   function logout() {
-    sessionStorage.clear();
+    localStorage.removeItem("loggedInUser");
     // Redirect to login page or home
     window.location.href = 'index.html';
   }
