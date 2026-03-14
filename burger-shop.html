@@ -217,9 +217,6 @@ close right column-->
 const username = localStorage.getItem("loggedInUser");
 document.getElementById("userDisplay").textContent = username || "Guest";
 const key = "cart_" + username;
-</script>
-
-<script>
 function checkout()
 {
 const cartKey = "cart_" + username;
@@ -375,10 +372,6 @@ paypal.Buttons({
 
 <script>
 function showTab(index) {
-  const sound = document.getElementById("splatSound");
-    sound.currentTime = 0;
-    sound.play();
-
     const tabs = document.querySelectorAll('.fire-button');
     const contents = document.querySelectorAll('.tab-content');
     tabs.forEach((tab, i) => {
@@ -387,11 +380,6 @@ function showTab(index) {
     });
   }
 </script>
-
-
-
-
-
 </body>
 </html>
 
