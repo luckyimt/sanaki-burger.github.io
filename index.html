@@ -70,14 +70,12 @@ message.textContent = 'Username already exists.';
 return;
 }
 
-
 users[username] = password; 
 saveUsers(users);
 message.textContent = 'Signup successful! You can now log in.';
 }
 
 function login() {
-
 event.preventDefault();
 const username = document.getElementById("loginUsername").value;
 currentUser = username;
