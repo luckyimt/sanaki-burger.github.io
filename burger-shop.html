@@ -12,13 +12,11 @@
 
 
 <body onload="loadCart()">
-  
-  <script>
+<script>
 const username = localStorage.getItem('loggedInUser');
 document.getElementById("userDisplay").textContent = username || "Guest";
-  </script>
-  
-  
+const key = "cart_" + username;
+</script>
 
 <div class="tabmenu">
 <h1 id="userDisplay"></h1>
@@ -231,7 +229,6 @@ close right column-->
 
 
 <script>
-
 function checkout()
 {
 const cartKey = "cart_" + username;
@@ -400,9 +397,7 @@ function showTab(index) {
   }
 </script>
 
-<script>
-  const key = "cart_" + username;
-</script>
+
 </body>
 </html>
 
