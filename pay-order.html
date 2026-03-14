@@ -150,9 +150,10 @@ return urlParams.get(name);
 const now = new Date().toISOString().split('T')[0];
 
 const ticketId = getQueryParam('orderId');
-const name = getQueryParam('email');
-const total = getQueryParam('total');
+const name = getQueryParam('username');
 const item = getQueryParam('items');
+const total = getQueryParam('total');
+
 
 document.getElementById('ticket-id').textContent = ticketId + " : " + name;
 document.getElementById('total').textContent = total;
