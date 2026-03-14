@@ -6,21 +6,12 @@
 <script src="/analytics.js"></script>
 
 <script src="https://www.paypal.com/sdk/js?client-id=ARf-RdlCTjnFCBXP-6s-dOK19oMSRmzdFHZ-PNUfHwecBnMksEhVVnaKPuIl-W3E8QyGOAdJnTwtG2-G&currency=USD"></script>
-
-
 </head>
 
 
 <body onload="loadCart()">
-<script>
-const username = localStorage.getItem('loggedInUser');
-document.getElementById("userDisplay").textContent = username || "Guest";
-const key = "cart_" + username;
-</script>
-
 <div class="tabmenu">
 <h1 id="userDisplay"></h1>
-
 
 <button onClick="logout()" class="leaf-button">
   <svg viewBox="0 0 1600 200" width="100%" height="auto" preserveAspectRatio="none">
@@ -49,11 +40,8 @@ const key = "cart_" + username;
   </svg>
 </button>
 <div class="perimeter">
-
 <div class="left-column">
-
 <div class="row">
-
 <button onclick="showTab(2)" class="bacon-button">
   <svg viewBox="0 0 1600 400" width="100%" height="auto" preserveAspectRatio="none">
     <!-- Bacon strip shape -->
@@ -82,7 +70,6 @@ const key = "cart_" + username;
   </svg>
 </button>
 </div>
-
 
 <div class="row">
 <button onclick="showTab(0)" class="cheese-button">
@@ -165,7 +152,6 @@ const key = "cart_" + username;
 <h1>fRENCHFRY</h1>
   </svg>
 </button>
-
 </div>
 
 <div class="row">
@@ -227,6 +213,11 @@ close right column-->
 </div>
 </div>
 
+<script>
+const username = localStorage.getItem("loggedInUser");
+document.getElementById("userDisplay").textContent = username || "Guest";
+const key = "cart_" + username;
+</script>
 
 <script>
 function checkout()
@@ -396,6 +387,9 @@ function showTab(index) {
     });
   }
 </script>
+
+
+
 
 
 </body>
