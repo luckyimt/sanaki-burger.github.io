@@ -24,8 +24,8 @@ html,body {
 
 .img-product
 {
-height:50%;
-width:50%;
+height:auto;
+width:100%;
 border-radius: 15%;
 }
 
@@ -167,7 +167,7 @@ width:50dvw;
 }
 .cart-img{
   		border-radius: 25%;
-      width:100%;
+      width:30%;
 }
 
 .sum{
