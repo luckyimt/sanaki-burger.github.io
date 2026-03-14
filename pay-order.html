@@ -111,8 +111,8 @@ background-image: url("burger.jpg");
 </head>
 <body>
 
-  <div class="ticket-container">
-    <div class="ticket-title">order details</div>
+<div class="ticket-container">
+<div class="ticket-title">order details</div>
 
 <div class="ticket-info">
 <div class="info-item">
@@ -149,13 +149,14 @@ return urlParams.get(name);
 <script>
 const now = new Date().toISOString().split('T')[0];
 
-const ticketId = getQueryParam('orderId');
-const name = getQueryParam('username');
-const item = getQueryParam('items');
+const ticketId = getQueryParam('ticketId');
+const name = getQueryParam('user');
+const item = getQueryParam('item');
 const total = getQueryParam('total');
 
 
 document.getElementById('ticket-id').textContent = ticketId + " : " + name;
+document.getElementById('item').textContent = item;
 document.getElementById('total').textContent = total;
 document.getElementById('date').textContent = now;
 </script>
