@@ -24,7 +24,7 @@ html,body {
 .img-product
 {
 height:50dvh;
-width:50dvw;
+width:auto;
 border-radius: 15%;
 }
 
