@@ -245,8 +245,7 @@ localStorage.setItem("orders_"+username, JSON.stringify(userOrders));
 localStorage.removeItem(cartKey);
 alert("checkout!");
 
-window.location.href = `pay-order.html?ticketId=${encodeURIComponent(orderId)}&user=${encodeURIComponent(username)}&item=${encodeURIComponent(items
-  )}&total=${encodeURIComponent(total)}`;
+window.location.href = `pay-order.html?ticketId=${encodeURIComponent(orderId)}&user=${encodeURIComponent(username)}&item=${encodeURIComponent(items)}&total=${encodeURIComponent(total)}`;
 }
 
 
