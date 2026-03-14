@@ -10,6 +10,9 @@
 
 
 <body onload="loadCart()">
+  <script>
+  document.getElementById("userDisplay").textContent = username || "Guest";
+  </script>
 <h1 id="userDisplay"></h1>
 <div class="tabmenu">
 <button onClick="logout()" class="leaf-button">
@@ -214,14 +217,13 @@ close right column-->
 
 <script>
 const username = localStorage.getItem("loggedInUser");
-document.getElementById("userDisplay").textContent = username || "Guest";
 const key = "cart_" + username;
+
 function checkout()
 {
 const cartKey = "cart_" + username;
 let cart = JSON.parse(localStorage.getItem(cartKey)) || [];
 if(cart.length === 0) return;
-
 let total = cart.reduce((sum,item)=>sum + item.price*item.quantity,0);
 const order = {
 orderId:"ORD"+Date.now(),
@@ -242,8 +244,12 @@ localStorage.setItem("orders_"+username, JSON.stringify(userOrders));
 /* Clear cart */
 localStorage.removeItem(cartKey);
 alert("checkout!");
-window.location.href = `pay-order.html?ticketId=${encodeURIComponent(orderId)}&user=${encodeURIComponent(email)}&item=${encodeURIComponent(items)}&total=${encodeURIComponent(total)}`;
+
+window.location.href = `pay-order.html?ticketId=${encodeURIComponent(orderId)}&user=${encodeURIComponent(username)}&item=${encodeURIComponent(items
+  )}&total=${encodeURIComponent(total)}`;
 }
+
+
 
 
 function addToCart(productId) 
