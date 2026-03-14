@@ -274,7 +274,8 @@ function renderCart()
    const cartContainer = document.getElementById('cart');
    cartContainer.innerHTML = cart.map(item => `
      <div class="cart-item">
-       <div><img src="${item.img}" class="cart-img"></div><div class="sum">x${item.quantity} = $${(item.price * item.quantity).toFixed(2)} 
+       <div><img src="${item.img}" class="cart-img">
+      <h1>${item.name}</h1></div><div class="sum">x${item.quantity} = $${(item.price * item.quantity).toFixed(2)} 
  <button class="fire-button" onclick="removeFromCart(${item.id})">cancel</button>
 </div>
                 </div>
