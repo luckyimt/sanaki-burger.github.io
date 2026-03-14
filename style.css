@@ -23,8 +23,8 @@ html,body {
 
 .img-product
 {
-height:69dvh;
-width:auto;
+height:50dvh;
+width:50dvw;
 border-radius: 15%;
 }
 
