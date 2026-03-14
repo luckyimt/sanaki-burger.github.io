@@ -23,7 +23,7 @@ html,body {
 
 .img-product
 {
-height:50dvh;
+height:40dvh;
 width:auto;
 border-radius: 15%;
 }
@@ -98,6 +98,7 @@ width:50dvw;
 
 .right-column .content {
   min-height: 200%;
+ padding:5%;
   width:100%;
 }
 
@@ -113,7 +114,7 @@ width:50dvw;
 }
 .cart-img{
   		border-radius: 25%;
-      width:40%;
+      width:20%;
 }
 
 .sum{
