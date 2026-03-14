@@ -12,6 +12,13 @@
 
 
 <body onload="loadCart()">
+  
+  <script>
+const username = localStorage.getItem('loggedInUser');
+document.getElementById("userDisplay").textContent = username || "Guest";
+  </script>
+  
+  
 
 <div class="tabmenu">
 <h1 id="userDisplay"></h1>
@@ -43,13 +50,6 @@
     </text>
   </svg>
 </button>
-  <script>
-
-  const username = localStorage.getItem('loggedInUser');
-  const key = "cart_" + username;
-  
-  </script>
-
 <div class="perimeter">
 
 <div class="left-column">
@@ -184,7 +184,6 @@
 </div>
 
 <div class="right-column">
-
 <div class="tab-content active">
 
 <div class="product" data-id="1" data-img="beef.jpg" data-name="cheese-beef" data-price="99">
@@ -209,26 +208,18 @@
 </div>
 
 <div class="tab-content">
-
 <div class="product" data-id="4" data-img="chips.jpg" data-name="frenchfries" data-price="69" >
-
 <div class="label">Fries</div>
 <button class="fire-button" onclick="addToCart(4)">pick</button>
 <img src="chips.jpg" alt="frenchfries" class="img-product">
-
-
 </div>
 </div>
 
 <div class="tab-content">
-
 <div class="product" data-id="5" data-img="sandwish.jpg" data-name="sandwish" data-price="99">
-
 <div class="label">Sandwish</div>
 <button class="fire-button" onclick="addToCart(5)">pick</button>
 <img src="sandwish.jpg" alt="sandwish" class="img-product">
-
-
 </div>
 </div>
 
@@ -241,7 +232,8 @@ close right column-->
 
 <script>
 
-function checkout(){
+function checkout()
+{
 const cartKey = "cart_" + username;
 let cart = JSON.parse(localStorage.getItem(cartKey)) || [];
 if(cart.length === 0) return;
@@ -270,7 +262,8 @@ window.location.href = `pay-order.html?ticketId=${encodeURIComponent(orderId)}&u
 }
 
 
-function addToCart(productId) {
+function addToCart(productId) 
+{
       const product = document.querySelector(`.product[data-id='${productId}']`);
       const name = product.getAttribute('data-name');
       const price = parseFloat(product.getAttribute('data-price'));
@@ -285,11 +278,12 @@ function addToCart(productId) {
       renderCart();
 }
 
-function removeFromCart(productId) {
+function removeFromCart(productId) 
+{
       cart = cart.filter(item => item.id !== productId);
       saveCart();
       renderCart();
-    }
+}
     
 function renderCart() 
 {
@@ -304,25 +298,28 @@ function renderCart()
 const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
 currentTotal = total;
 document.getElementById('total').textContent = total.toFixed(2);
-    }
+}
 
-function saveCart() {
+function saveCart()
+{
 localStorage.setItem(key, JSON.stringify(cart));
-    }
+}
 
-function loadCart() {
+function loadCart() 
+{
       const stored = localStorage.getItem(key);
       if (stored) {
         cart = JSON.parse(stored);
         renderCart();
       }
-    }
+}
 
-function logout() {
+function logout() 
+{
     localStorage.removeItem("loggedInUser");
     // Redirect to login page or home
     window.location.href = 'index.html';
-  }
+}
 </script>
 
 <script>
@@ -333,7 +330,6 @@ app.use(express.json());
 
 app.post("/webhook/paypal", async (req, res) => {
     const body = req.body;
-
     if (body.event_type === "PAYMENT.SALE.COMPLETED") {
         const orderId = body.resource.parent_payment;
         const payerEmail = body.resource.payer.payer_info.email;
@@ -341,7 +337,6 @@ app.post("/webhook/paypal", async (req, res) => {
 
         // Save to database
         await saveOrderToDatabase(orderId, payerEmail, amount);
-
         res.sendStatus(200);
     } else {
         res.sendStatus(400);
@@ -388,7 +383,6 @@ paypal.Buttons({
         });
     }
 }).render('#paypal-button-container');
-
 </script>
 
 <script>
@@ -406,39 +400,9 @@ function showTab(index) {
   }
 </script>
 
-
 <script>
-function explodeTomato(button) {
-  if (button.classList.contains('exploded')) return;
-
-  button.classList.add('exploded');
-
-  // Set random directions for slices
-  const slices = button.querySelectorAll('.slices path');
-  slices.forEach((slice) => {
-    const angle = Math.random() * 2 * Math.PI;
-    const distance = 60 + Math.random() * 20;
-    const dx = Math.cos(angle) * distance;
-    const dy = Math.sin(angle) * distance;
-    slice.style.setProperty('--x', dx + 'px');
-    slice.style.setProperty('--y', dy + 'px');
-  });
-}
+  const key = "cart_" + username;
 </script>
-
-
-<audio id="splatSound" src="https://cdn.pixabay.com/audio/2023/03/20/audio_2e91cbd52f.mp3"></audio>
-
-<script>
-  function playSplatSound() {
-    const sound = document.getElementById("splatSound");
-    sound.currentTime = 0;
-    sound.play();
-  }
-</script>
-
-
-
 </body>
 </html>
 
