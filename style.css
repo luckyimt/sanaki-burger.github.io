@@ -1,8 +1,8 @@
 html,body {
   background: url('burger.jpg') no-repeat center center/cover;
   font-family: 'Segoe UI', sans-serif;
- width:100%;
- height: 100vh;
+  width:100%;
+  height: 100vh;
   overflow-y: auto;
   margin: 0;
   padding: 0;
@@ -11,8 +11,8 @@ html,body {
 
 .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px,1fr));
-      height:100%;
+      grid-template-columns:      repeat(auto-fit, minmax(150px,1fr));
+      height:100%;)
     }
 
 .arrange{
@@ -23,38 +23,38 @@ html,body {
 
 .img-product
 {
-height:40dvh;
-width:auto;
-border-radius: 15%;
+height:80%;
+width:80%;
+border-radius: 20%;
 }
 
 
-.message{
+.message
+{
 font-family: 'Segoe UI', sans-serif;
-font-size:30px;
+font-size:16px;
 color:white;
-  );
 }
 
-h1{
+h1
+{
 font-family: 'Segoe UI', sans-serif;
-font-size:24x;
-color:white;
-
-  );
-
-}
-
-h2 {
-font-family: 'Segoe UI', sans-serif;
-font-size:24px;
+font-size:18px;
 color:white;
 position:relative;
-  );
+}
+
+h2 
+{
+font-family: 'Segoe UI', sans-serif;
+font-size:16px;
+color:white;
+position:relative;
   
 }
 
-.tabmenu{
+.tabmenu
+{
 color:white;
 position:relative;
 width:100%;
@@ -62,44 +62,52 @@ height:100%;
 }
 
 .perimeter{
+
+position:relative;
 overflow-y: auto;
 display:flex;
-width:100dvw;
+width:100%;
+}
+.loginsignup
+{
+position:relative;
+display:grid;
+width:100%;
+height:100%;
+
 }
 
-
-
-.text-box {
-      border-radius: 8%;
-      align-content:center;
-      text-align: center;
-    }
-
 .left-column {
-position:relative;
-width:50dvw;
+  position:relative;
+  width:100%;
   flex: 1;
   display: flex;
   flex-direction: column;
-  padding: 5%;
+  padding: 5px;
+  max-height: 100vh;
 }
 
 .left-column .row {
-  padding: 3%;
-  }
+color:rgba(255,255,255,1);
+  border-bottom: 1px solid #000;
+  padding: 3px;
+}
+
 .right-column {
+
   background: url('tiger.jpg') no-repeat center center/cover;
-  position:relative;
+position:relative;
   width: 100%;
-  height: 100dvh;
-  padding:5%;
+  height: 100vh;
+padding:5%;
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
   overflow-y: auto;
+  color:white;
 }
 
 .right-column .content {
   min-height: 200%;
- padding:5%;
-  width:100%;
+width:80%;
 }
 
 .grid {
@@ -109,40 +117,41 @@ width:50dvw;
     }
 
 .cart-item { 
+  position:relative;
   display: grid;
   grid-template-columns:      repeat(auto-fit, minmax(100px,1fr));
 }
 .cart-img{
-  		border-radius: 25%;
-      width:20%;
+  		border-radius: 20%;
+      width:100%;
 }
 
 .sum{
+position:relative;
 font-weight:bold;
-font-size: 20px;
+font-size: 18px;
 color:rgba(255,255,255,1);
 font-family:monospace;
 }
 
 .product {
-border-radius: 7%;
+position:relative;
+border-radius: 20%;
 overflow: hidden;
-background-color:rgba(224,100,100,0.2);
-height:100%;
-width:auto;
+gap:20px;
 }
 
 .logout-button {
-    width:100%;
-    background-color:rgba(0,250,0,1);
-    color:rgba(255,255,255,1);
-    font-family:monospace;
-    font-size: 28px;
-    font-weight:bold;
-    border-radius: 5%;
-    position: relative;
-    border:none;
-    animation: moveBackground 50s ease infinite;
+width:100%;
+background-color:rgba(0,250,0,1);
+color:rgba(255,255,255,1);
+font-family:monospace;
+font-size: 28px;
+font-weight:bold;
+border-radius: 5%;
+position: relative;
+border:none;
+      animation: moveBackground 50s ease infinite;
     }
     @keyframes moveBackground {
       0% { background-position: 0% 50%; }
@@ -208,110 +217,44 @@ width:auto;
 }
 
 
-.fire-button {
-      width:25%;
-      background-color:rgba(250,0,0,1);
-      color:rgba(255,255,255,1);
-      font-family:monospace;
-      font-size: 28px;
-      font-weight:bold;
-      border-radius: 5%;
-      position: relative;
-      border:none;
-      animation: moveBackground 50s ease infinite;
-    }
-    @keyframes moveBackground {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-}
+
+
 
 .tabs { 
       display:flex;
 }
 .total{
       font-weight:bold;
-  		font-size: 22px;
+  		font-size: 18px;
       font-family:monospace;
 color:rgba(255,255,255,1);
 }
 .menu{
-  		font-size: 24px;
+  		font-size: 20px;
       font-weight:bold;
       font-family:monospace;
 color:rgba(255,255,255,1);
 }
 .label{
       font-weight:bold;
-  		font-size: 20px;
+  		font-size: 24px;
       font-family:monospace;
-color:rgba(111,119,224,0.8);
-      border-radius: 5%;
+color:rgba(255,255,255);
+      border-radius: 20%;
 }
 .tab.active {
+      border-radius:20%;
       border : 2px solid #fff;
     }
 .tab-content {
       display: none;
-      border-radius: 5%;
+      border-radius: 5px;
     }
 .tab-content.active {
       display: block;
-      border-radius:10%;
+      border-radius:20%;
+
     }
-
-.social-container {
-      display: grid;
-      align-items: center;
-      padding: 15px;
-      background-color: rgba(2,20,66,0.1);
-    }
-
-.social-link {
-     align-items: center;
-     font-size:10px;
-     font-family:monospace;
-    }
-
-.social-link img {
-      align-items: center;
-      width:50px;
-      height: 50px;
-      border-radius:40px;
-    }
-
-.social-link:hover {
-      transform: scale(1.1);
-    }
-
-.swiper-container {
-
-position:relative;
-  background: url('grill.jpg') no-repeat center center/cover;
-  width: 100%;
-  overflow: hidden;
-  border-radius: 15;
-  backdrop-filter: blur(20px);
-}
-
-.swiper-wrapper {
-  position:relative;
-  top:40%;
-  padding-left:40%;
-  display: flex;
-  transition: transform 0.5s ease-in-out;
-  touch-action: pan-y;
-}
-
-.swiper-slide {
-  width:30%;
-  height: 30%;
-  object-fit: cover;
-  border-radius: 15px;
-  user-select: none;
-  pointer-events: none;
-}
 
 
 @keyframes float {
@@ -324,53 +267,4 @@ position:relative;
       }
     }
 
-.loginsignup {
-display:grid;
-width:100%;
-height:100%;
-}
 
-.form-toggle-container {
-  width: 300px;
-  margin: auto;
-  font-family: sans-serif;
-}
-
-.toggle-buttons {
-  display: flex;
-  justify-content: space-between;
-}
-
-.toggle-buttons button {
-  width: 50%;
-  padding: 10px;
-  cursor: pointer;
-  border: 1px solid #ccc;
-  background: #f1f1f1;
-  font-weight: bold;
-  transition: background 0.3s;
-}
-
-.toggle-buttons .active {
-  background: #ffffaa;
-  color: white;
-  border: none;
-}
-
-.forms {
-  margin-top: 20px;
-}
-
-.form {
-  display: none;
-}
-
-.form.active {
-  display: block;
-}
-
-input, button[type="submit"] {
-  width: 100%;
-  padding: 10px;
-  margin-top: 10px;
-}
