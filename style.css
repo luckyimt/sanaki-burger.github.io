@@ -59,7 +59,6 @@ html,body {
 }
 
 
-
 .grid {
       display: grid;
       grid-template-columns:      repeat(auto-fit, minmax(150px,1fr));
@@ -74,8 +73,8 @@ html,body {
 
 .img-product
 {
-height:90%;
-width:90%;
+height:80%;
+width:80%;
 border-radius: 20%;
 }
 
@@ -318,6 +317,7 @@ color:rgba(255,255,255);
       }
     }
 
+
 .form-toggle-container {
   width: 300px;
   margin: auto;
@@ -362,4 +362,3 @@ input, button[type="submit"] {
   padding: 10px;
   margin-top: 10px;
 }
-
