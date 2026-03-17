@@ -73,6 +73,7 @@
 </button>
 </div>
 
+
 <div class="row">
 <button onclick="showTab(0)" class="cheese-button">
   <svg viewBox="0 0 1600 600" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
@@ -123,6 +124,12 @@
     </text>
   </svg>
 </button>
+
+
+
+
+
+
     <!-- Button Text -->
 </div>
 
@@ -171,23 +178,21 @@
 </div><!--close perimeter column-->
 
 
-
-
-</div><!--right column-->
-
-
-
 <div class="right-column">
+
 <div class="tab-content active">
+
 <div class="product" data-id="1" data-img="beef.jpg" data-name="cheese-beef" data-price="10.9">
 <center>
 
 <div class="image-overlay-card">
 <img src="beef.jpg" alt="beef" class="img-product">
-  <div class="overlay">
+
+<div class="overlay">
       <h2>Cheese burger</h2>
     <p>Description goes here</p>
-    <button onclick="addToCart(1)" class="cheese-button">
+
+<button onclick="addToCart(1)" class="cheese-button">
   <svg viewBox="0 0 1600 600" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
 
     <!-- Melty cheese shape -->
@@ -231,25 +236,25 @@
     <circle cx="300" cy="240" r="30" fill="#f4c430" />
     <circle cx="900" cy="220" r="40" fill="#f4c430" />
     <circle cx="1300" cy="300" r="25" fill="#f4c430" />
-
-
     </text>
   </svg>
 </button>
-  </div>
+
 </div>
+</div>
+
 </center>
 </div>
 
 <div class="product" data-id="2" data-img="pork.jpg" data-name="cheese-pork" data-price="9.9">
 <center>
-<img src="pork.jpg" alt="pork" class="img-product">
 <div class="image-overlay-card">
-  <div class="overlay">
-      <h2>cheese Pork</h2>
-    <p>Description goes here</p>
-<button onclick="addToCart(2)" class="cheese-button">
-  <svg viewBox="0 0 1600 600" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+<img src="pork.jpg" alt="samurai" class="img-product">
+<div class="overlay">
+<h2>samurai burger</h2>
+<p>Description goes here</p>
+<button onclick="addToCart(1)" class="cheese-button">
+<svg viewBox="0 0 1600 600" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
 
     <!-- Melty cheese shape -->
     <path id="cheeseDrip" d="
@@ -295,13 +300,20 @@
     </text>
   </svg>
 </button>
+
 </div>
 </div>
+
 </center>
 </div>
 
 <div class="product" data-id="3" data-img="chicken.jpg" data-name="cheese-chicken" data-price="8.9">
 <center>
+<div class="image-overlay-card">
+<img src="chicken.jpg" alt="chicken" class="img-product">
+<div class="overlay">
+<h2>chicken burger</h2>
+<p>Description goes here</p>
 <button onclick="addToCart(3)" class="cheese-button">
   <svg viewBox="0 0 1600 600" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
 
@@ -349,66 +361,10 @@
     </text>
   </svg>
 </button>
+
 </div>
 </div>
-</center>
-</div>
 
-
-<div class="image-overlay-card">
-<img src="chicken.jpg" alt="chicken" class="img-product">
-  <div class="overlay">
-      <h2>Chicken burger</h2>
-    <p>Description goes here</p>
-    <button onclick="addToCart(2)" class="cheese-button">
-  <svg viewBox="0 0 1600 600" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
-
-    <!-- Melty cheese shape -->
-    <path id="cheeseDrip" d="
-      M0,150 
-      Q200,130 400,150 
-      Q600,170 800,150 
-      Q1000,130 1200,150 
-      Q1400,170 1600,150 
-      L1600,400 
-      Q1550,380 1520,450 
-      Q1480,520 1420,480 
-      Q1350,420 1300,500 
-      Q1250,560 1200,500 
-      Q1150,440 1100,520 
-      Q1050,580 1000,500 
-      Q950,420 900,500 
-      Q850,560 800,500 
-      Q750,440 700,520 
-      Q650,580 600,500 
-      Q550,420 500,500 
-      Q450,560 400,500 
-      Q350,440 300,500 
-      Q250,560 200,500 
-      Q150,440 100,500 
-      Q50,560 0,500 Z"
-      fill="#FFD700" stroke="#e0ac00" stroke-width="4">
-      <animate attributeName="d"
-        dur="1s"
-        repeatCount="indefinite"
-        values="
-          M0,150 Q200,130 400,150 Q600,170 800,150 Q1000,130 1200,150 Q1400,170 1600,150 L1600,400 Q1550,380 1520,450 Q1480,520 1420,480 Q1350,420 1300,500 Q1250,560 1200,500 Q1150,440 1100,520 Q1050,580 1000,500 Q950,420 900,500 Q850,560 800,500 Q750,440 700,520 Q650,580 600,500 Q550,420 500,500 Q450,560 400,500 Q350,440 300,500 Q250,560 200,500 Q150,440 100,500 Q50,560 0,500 Z;
-          
-          M0,150 Q200,135 400,150 Q600,180 800,150 Q1000,120 1200,150 Q1400,180 1600,150 L1600,400 Q1550,400 1520,460 Q1480,540 1420,470 Q1350,400 1300,510 Q1250,580 1200,510 Q1150,430 1100,530 Q1050,600 1000,490 Q950,410 900,510 Q850,580 800,510 Q750,420 700,530 Q650,600 600,510 Q550,430 500,510 Q450,580 400,510 Q350,430 300,510 Q250,580 200,510 Q150,430 100,510 Q50,580 0,510 Z;
-
-          M0,150 Q200,130 400,150 Q600,170 800,150 Q1000,130 1200,150 Q1400,170 1600,150 L1600,400 Q1550,380 1520,450 Q1480,520 1420,480 Q1350,420 1300,500 Q1250,560 1200,500 Q1150,440 1100,520 Q1050,580 1000,500 Q950,420 900,500 Q850,560 800,500 Q750,440 700,520 Q650,580 600,500 Q550,420 500,500 Q450,560 400,500 Q350,440 300,500 Q250,560 200,500 Q150,440 100,500 Q50,560 0,500 Z"
-      />
-    </path>
-
-    <!-- Optional cartoon cheese holes -->
-    <circle cx="300" cy="240" r="30" fill="#f4c430" />
-    <circle cx="900" cy="220" r="40" fill="#f4c430" />
-    <circle cx="1300" cy="300" r="25" fill="#f4c430" />
-    </text>
-  </svg>
-</button>
-</div>
-</div>
 </center>
 </div>
 
@@ -416,14 +372,14 @@
 <div class="product" data-id="4" data-img="chips.jpg" data-name="frenchfries" data-price="4.9" >
 <center>
 
-
 <div class="image-overlay-card">
-<img src="chips.jpg" alt="frenchfries" class="img-product">
-  <div class="overlay">
-      <h2>chips</h2>
-    <p>Description goes here</p>
-    <button onclick="addToCart(4)" class="cheese-button">
-  <svg viewBox="0 0 1600 600" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+<img src="chips.jpg" alt="chips" class="img-product">
+
+<div class="overlay">
+<h2>fries</h2>
+<p>Description goes here</p>
+<button onclick="addToCart(1)" class="cheese-button">
+<svg viewBox="0 0 1600 600" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
 
     <!-- Melty cheese shape -->
     <path id="cheeseDrip" d="
@@ -466,27 +422,27 @@
     <circle cx="300" cy="240" r="30" fill="#f4c430" />
     <circle cx="900" cy="220" r="40" fill="#f4c430" />
     <circle cx="1300" cy="300" r="25" fill="#f4c430" />
-
     </text>
-  </svg>p
+  </svg>
 </button>
-  </div>
-  </div>
+
+</div>
+</div>
 </center>
+</div>
 </div>
 
 <div class="tab-content">
 <div class="product" data-id="5" data-img="sandwish.jpg" data-name="sandwish" data-price="12.9">
 </div>
 <center>
-
 <div class="image-overlay-card">
-<img src="sandwish.jpg" alt="sandwish" class="img-product">
-  <div class="overlay">
-      <h2>cLubs</h2>
-    <p>Description goes here</p>
-    <button class="cheese-button" onclick="addToCart(5)"class="cheese-button">
-  <svg viewBox="0 0 1600 600" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+<img src="sandwish.jpg" alt="sandwidh" class="img-product">
+<div class="overlay">
+<h2>sandwidh</h2>
+<p>Description goes here</p>
+<button onclick="addToCart(1)" class="cheese-button">
+<svg viewBox="0 0 1600 600" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
 
     <!-- Melty cheese shape -->
     <path id="cheeseDrip" d="
@@ -529,15 +485,14 @@
     <circle cx="300" cy="240" r="30" fill="#f4c430" />
     <circle cx="900" cy="220" r="40" fill="#f4c430" />
     <circle cx="1300" cy="300" r="25" fill="#f4c430" />
-
-
     </text>
   </svg>
 </button>
-  </div>
-</div>
 
+</div>
+</div>
 </center>
+</div>
 </div>
 
 </div><!--
